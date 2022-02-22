@@ -1,18 +1,35 @@
 # A Random Forest Model for DTI(Drug-Target Interaction) Prediction via KL-Divergence
 
-Collection of scripts for distinguishing two Pharmacological classes using Kullback-Leibler divergence from Tanimoto Coefficient structure of each classes.
+This repository contains the useful script, used in our manuscript. 
+Collection of scripts for Kullback-Leibler divergence aided Random forest model
 
+
+This repository is divided into four parts;
+
+- The Molecular Fingerprints from E3FP descriptor using the E3FP python interface (https://github.com/keiserlab/e3fp).
+- Calculate Similarity score(e3fp Rdkit)
+- Density Estimation scheme(KDE) and KL-Divergence Calculation 
+- The Drug-Target classifier based on Random-Forest Classifier 
 
 (Requirements)
 
-This script is designed to run under Python 3.6 and Anaconda version 5.2.0
-
+a) This script is designed to run under Python 3.6 
+e3fp, NumPy, SciPy, Pandas, Matplotlib, RDKit Scikit Learn, Seaboarn 
 
 (usage)
 
-1. Generate pdf (probability density function) driven from Gaussian mixture model(GMM) (Using GMM.ipynb) : The pdf represents each of pharmacological classes
-2. Calculate and Visualize Kullback-Leibler Divergence of Pharmacological Class(64+64, 64+10003, 10003+10003) from gaussian mixture pdfs (Using KLD.ipynb)
+1. Generate 3d-Fingerprint(by Molecular descriptor) using GenerateFingerprint.ipynb
+2. Calculate similarity score using Calc_Sim_score.py
+3. Generate Densities using KDE_Rep.py
+4. Calculate Divergence using CalcKLD.py
+5. Train and Test the Dataset using Random-forest Classifier (KLD-RF.ipynb)
 
 (Result)
 
-The final result form KL-divergence works as an informatical comparison method that characterizes the structures of 3D-similarity scores.
+The KL-divergence from estimated density(by KDE) works as an 
+feature for RF-Classifier that characterizes the structures of pharmachological target.
+
+
+(Acknowledgement)
+
+This Study was Conducted as a Research Project of M.H.Kim Lab in the School of Pharmacy, Gachon University.
